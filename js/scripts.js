@@ -1,10 +1,18 @@
+//using a constructor to build a framework for contact information called Contact.
+//using a prototype which is a method called fullName to run a function to concat first and last name.
+
+
 //business logic
 
-
-// contact constructor
+//contact constructor
 function Contact(first, last) {
   this.firstName = first;
   this.lastName = last;
+}
+
+//creating a prototype
+Contact.prototype.fullName = function() {
+	return this.firstName + " " + this.lastName;
 }
 
 
@@ -18,7 +26,8 @@ $(document).ready(function() {
 
     var newContact = new Contact(inputtedFirstName, inputtedLastName); // creating new contact using the constructor and passing in the Input values
 
-    $("ul#contacts").append("<li><span class='contact'>" + newContact.firstName + "</span></li>");
+		//.fullname() is a method that points to a prototype that runs a function for the contact
+    $("ul#contacts").append("<li><span class='contact'>" + newContact.fullName() + "</span></li>");
 
 		$(".contact").last().click(function() {
 		  $("#show-contact").show();
